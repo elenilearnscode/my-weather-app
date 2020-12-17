@@ -59,3 +59,7 @@ h1 {
   color: #ff3d00;
   text-align: center;
 }
+
+small {
+  text-align: center;
+}
