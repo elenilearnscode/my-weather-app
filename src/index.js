@@ -27,25 +27,26 @@ function formatDate() {
 let currentDate = new Date();
 let date = document.querySelector("#date");
 date.innerHTML = formatDate(currentDate);
+
 // SEARCH ENGINE
 
-function showTemperature(response) {
+  function showTemperature(response) {
   let temperature = response.data.main.temp;
-  let locationName = document.querySelector("#location");
-  locationName.innerHTML = response.data.name;
+  let cityName = document.querySelector("#city");
+  cityName.innerHTML = response.data.name;
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(temperature);
 }
 
 function handleSubmit(event) {
   event.preventDefault();
-  let locationSearch = document.querySelector("#location-input");
-  let locationName = document.querySelector("#location");
-  locationName.innerHTML = locationSearch.value;
-  searchLocation(locationSearch.value);
+  let citySearch = document.querySelector("#city-input");
+  let cityName = document.querySelector("#city");
+  cityName.innerHTML = citySearch.value;
+  searchCity(citySearch.value);
 }
 
-function searchLocation(location) {
+function searchCity(city) {
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
@@ -55,6 +56,7 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
 // CURRENT-CITY BUTTON
+
 function getPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
@@ -69,5 +71,5 @@ function startGeolocation(event) {
   navigator.geolocation.getCurrentPosition(getPosition);
 }
 
-let position = document.querySelector("#current-location-btn");
+let position = document.querySelector("#current-city-btn");
 position.addEventListener("click", startGeolocation);
