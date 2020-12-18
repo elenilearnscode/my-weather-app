@@ -69,5 +69,5 @@ function startGeolocation(event) {
   navigator.geolocation.getCurrentPosition(getPosition);
 }
 
-let position = document.querySelector("#current-city-btn");
+let position = document.querySelector("#current-location-btn");
 position.addEventListener("click", startGeolocation);
