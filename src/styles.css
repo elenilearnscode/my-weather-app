@@ -52,7 +52,7 @@ ul {
 li {
   font-size: 15px;
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+  font-weight: bolder;
   color: #ec5858;
   text-align: center;
 }
@@ -60,6 +60,6 @@ h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 34px;
   font-weight: 700;
-  color: #ec5858;
+  color: #f05454;
   text-align: center;
 }
