@@ -50,7 +50,10 @@ ul {
   padding-inline-start: 0px;
 }
 li {
-  font-size: 25px;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: #ff3d00;
+  text-align: center;
 }
 h1 {
   font-family: "Montserrat", sans-serif;
