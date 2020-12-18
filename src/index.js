@@ -31,21 +31,21 @@ date.innerHTML = formatDate(currentDate);
 
 function showTemperature(response) {
   let temperature = response.data.main.temp;
-  let cityName = document.querySelector("#city");
-  cityName.innerHTML = response.data.name;
+  let locationName = document.querySelector("#location");
+  locationName.innerHTML = response.data.name;
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(temperature);
 }
 
 function handleSubmit(event) {
   event.preventDefault();
-  let citySearch = document.querySelector("#city-input");
-  let cityName = document.querySelector("#city");
-  cityName.innerHTML = citySearch.value;
-  searchCity(citySearch.value);
+  let locationSearch = document.querySelector("#location-input");
+  let locationName = document.querySelector("#location");
+  locationName.innerHTML = locationSearch.value;
+  searchLocation(locationSearch.value);
 }
 
-function searchCity(city) {
+function searchLocation(location) {
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
