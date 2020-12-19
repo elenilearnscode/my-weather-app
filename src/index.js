@@ -91,10 +91,17 @@ descriptionElement.innerHTML = response.data.weather[0].description;
 humidityElement.innerHTML = response.data.main.humidity;
 windElement.innerHTML = Math.round(response.data.wind.speed);
 dateElement.innerHTML = Math.round(response.data.dt *1000);
-iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response04d@2x.png"`);
-
-}
-
+iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+ iconElement.setAttribute("alt", response.data.weather[0].description);
+    <div class="weather-forecast-temperature">
+        <strong>
+          ${Math.round(forecast.main.temp_max)}Â°
+        </strong>
+        ${Math.round(forecast.main.temp_min)}Â°
+      </div>
+    </div>
+  `;
+  }
 
 function displayCelsius(event){
 event.preventDefault();
@@ -117,3 +124,5 @@ function startGeolocation(event) {
 
 let position = document.querySelector("#current-city-btn");
 position.addEventListener("click", startGeolocation);
+
+search("Maidstone");
