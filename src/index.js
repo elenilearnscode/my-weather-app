@@ -25,6 +25,7 @@ function formatDate() {
 }
 
 let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+let city = "Maidstone";
 var apiUrl = "";
 let unit = "metric"; // metric for celsius
 
@@ -49,6 +50,11 @@ function handleSubmit(event) {
   let citySearch = document.querySelector("#city-input");
   let cityName = document.querySelector("#city");
   cityName.innerHTML = citySearch.value;
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
   searchCity(citySearch.value);
 }
 
@@ -79,6 +85,16 @@ let temperatureElement = document.querySelector("#temperature");
 temperatureElement.innerHTML = Math.round(fahrenheitTemperature)
 }
 
+temperatureElement.innerHTML = Math.round(response.data.main.temp);
+cityElement.innerHTML = response.data.name;
+descriptionElement.innerHTML = response.data.weather[0].description;
+humidityElement.innerHTML = response.data.main.humidity;
+windElement.innerHTML = Math.round(response.data.wind.speed);
+dateElement.innerHTML = Math.round(response.data.dt *1000);
+iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response04d@2x.png"`);
+
+}
+
 
 function displayCelsius(event){
 event.preventDefault();
@@ -93,9 +109,6 @@ fahrenheitLink.addEventListener("click", displayFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsius);
-
-axios.get(apiUrl).then(showTemperature);
-
 
 function startGeolocation(event) {
   event.preventDefault();
