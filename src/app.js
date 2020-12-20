@@ -52,6 +52,8 @@ let windElement = document.querySelector("#wind");
 let dateElement = document.querySelector("#date");
 let iconElement = document.querySelector("#icon");
 
+celsiusTemperature = response.data.main.temp;
+
 temperatureElement.innerHTML= Math.round(response.data.main.temp);
 cityElement.innerHTML = response.data.name;
 descriptionElement.innerHTML = response.data.weather[0].description;
@@ -75,10 +77,12 @@ function handleSubmit(event) {
  search(CityInputElement.value);
 }
 
-search("Maidstone")
+let celciusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+
 
 // CURRENT-CITY BUTTON
 function getPosition(position) {
@@ -98,6 +102,7 @@ function startGeolocation(event) {
 let position = document.querySelector("#current-city-btn");
 position.addEventListener("click", startGeolocation);
 
+// search("Maidstone")
 
 // function handleSubmit(event) {
 // event.preventDefault();
@@ -111,9 +116,35 @@ position.addEventListener("click", startGeolocation);
 // let date = document.querySelector("#date");
 // date.innerHTML = formatDate(currentDate);
 
-// // SEARCH ENGINE
+// Unit Conversion
 
-// let celsiusTemperature = 12
+function displayFahrenheitTemperature(event) {
+event.preventDefault();
+celsiusLink.classList.remove("active");
+fahrenheitLink.classlist.add("active");
+let fahrenheitTemperature = (celsiusTemperature * 9/5) + 32;
+temperatureElement.innerHTML = Math.round(fahrenheitTemperature)
+ }
+
+function displayCelsiusTemperature(event) {
+   event.preventDefault();
+   fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+ let temperatureElement = document.querySelector("#temperature");
+ temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null 
+
+let form = document.querySelector("#search-form");
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFarenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+search("Maidstone");
 
 //   function showTemperature(response) {
 //   celsiusTemperature = response.data.main.temp;
@@ -178,9 +209,6 @@ position.addEventListener("click", startGeolocation);
 // let temperatureElement = document.querySelector("#temperature");
 // temperatureElement.innerHTML = Math.round(celsiusTemperature)
 // }
-
-// let fahrenheitLink = document.querySelector("#fahrenheit-link");
-// fahrenheitLink.addEventListener("click", displayFahrenheit);
 
 // let celsiusLink = document.querySelector("#celsius-link");
 // celsiusLink.addEventListener("click", displayCelsius);

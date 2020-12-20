@@ -107,3 +107,12 @@ h2 {
   font-size: 20px;
   top: -32px;
 }
+
+.weather-temperature .active {
+  color: #153e90;
+  cursor: default;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
