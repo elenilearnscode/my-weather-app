@@ -17,16 +17,10 @@
   <h1>
     The Weather Peach
   </h1>
-  <h2>
-    Maidstone
-  </h2>
+  <h2 id="city"></h2>
   <ul>
-    <li>
-      Sunday
-    </li>
-    <li>
-      Partly sunny, showers around
-    </li>
+    <li>Last updated: <span id="date"></span></li>
+    <li id="description"></li>
   </ul>
 <div class="row">
  <div class="col-6">
@@ -34,17 +28,16 @@
 <div class="clearfix weather-temperature">
 <img src=""https://nortonsafe.search.ask.com/assets/b/serp-weather-icon-sets/IconSet_White/heavy-rain.png" alt="Sunny, with clouds" class="float-left"/>
  <div class="float-left">
-   <strong>5</strong> <span class="units">°C | <a href="#">°F</a></span>
+   <strong id="temperature"> </strong> <span class="units">°C | <a href="#">°F</a></span>
  </div>
 </div>
 </div>
 <div class="col-6">
   <ul>
     <li>
-    Humidity: 83%
-    </li>
+    Humidity: <span id="humidity"></span>%</li>
     <li>
-    Wind: 9.2 km/h
+    Wind: <span id="wind"></span> km/h</li>
     </li>
   </ul>
 </div>
@@ -55,6 +48,9 @@
 <div class="link-github">
   <a href="https://github.com/elenilearnscode/my-weather-app" target="_blank" id="footer">Open-source code</a> by Eleni
 </div>
+  <script src="src/app.js"></script>
+  </body>
+  </html>
     <!-- <h1>
       The weather peach
     </h1>

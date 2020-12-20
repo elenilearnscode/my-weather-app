@@ -55,6 +55,7 @@ li {
   font-size: 15px;
   font-family: "Montserrat", sans-serif;
   font-weight: bolder;
+  text-transform: capitalize;
   color: #f05454;
   text-align: center;
   line-height: 19px;
