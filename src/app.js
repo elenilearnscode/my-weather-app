@@ -62,29 +62,23 @@ iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.dat
 iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
+
+function search(city) {
 let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-let city = "Maidstone";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayTemperature);
+}
 
-// function search(event) {
-// event.preventDefault();
-// let cityInputElement = document.querySelector("#city-input");
+function handleSubmit(event) {
+ event.preventDefault();
+ let cityInputElement = document.querySelector("#city-input");
+ search(CityInputElement.value);
+}
 
-// let apiKey = "5f472b7acba333cd8a035ea85a0d4d4cc";
-// let city = "Maidstone";
-// let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-// axios.get(apiUrl).then(displayTemperature);
+search("Maidstone")
 
-
-// let form = document.querySelector("#search-form");
-// form.addEventListener("submit", search);
-// function search(city) {
-// let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-// let city = "Maidstone";
-// let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-// axios.get(apiUrl).then(displayTemperature);
-// }
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
 
 // function handleSubmit(event) {
 // event.preventDefault();
@@ -92,8 +86,7 @@ axios.get(apiUrl).then(displayTemperature);
 // }
 
 // search("Maidstone");
-// let form = document.querySelector("#search-form");
-// form.addEventListener("submit", handleSubmit);
+
 
 // let currentDate = new Date();
 // let date = document.querySelector("#date");
@@ -180,5 +173,3 @@ axios.get(apiUrl).then(displayTemperature);
 
 // let position = document.querySelector("#current-city-btn");
 // position.addEventListener("click", startGeolocation);
-
-// search("Maidstone");
