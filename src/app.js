@@ -80,6 +80,25 @@ search("Maidstone")
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
+// CURRENT-CITY BUTTON
+function getPosition(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let unit = "metric";
+  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${unit}&appid=${apiKey}`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function startGeolocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(getPosition);
+}
+
+let position = document.querySelector("#current-city-btn");
+position.addEventListener("click", startGeolocation);
+
+
 // function handleSubmit(event) {
 // event.preventDefault();
 // // let cityInputElement = document.querySelector("#city-input");
