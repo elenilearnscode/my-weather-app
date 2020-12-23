@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,61 +12,65 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container main-container">
   <h1>
     The Weather Peach
   </h1>
-  <h2 id="city"></h2>
-  <ul>
-    <li>Last Updated: <span id="date"></span></li>
+  <h2 id="city">Maidstone</h2>
+  <ul class="weather-description">
+    <li>Last Updated: <span id="date">Tuesday, 22:10</span></li>
     <li id="description"></li>
   </ul>
 <div class="row">
- <div class="col-6">
- </div>
-<div class="clearfix weather-temperature">
-<img src="" alt="Overcast Clouds" id="icon" class="float-left"/>
- <div class="float-left">
-   <strong id="temperature"> </strong> <span class="units"> <a href="#" id="celsius-link" class="active"> °C</a> | <a href="#"id="fahrenheit-link">°F</a></span>
- </div>
-</div>
+  <div class="col-6"></div>
+  <div class="clearfix weather-temperature">
+    <img src="http://openweathermap.org/img/wn/04n@2x.png" alt="overcast clouds" id="icon" class="float-left" />
+    <div class="float-left units-container">
+      <strong id="temperature">11</strong>
+      <span class="units">
+        <a href="#" id="celsius-link" class="active"> °C</a> |
+        <a href="#" id="fahrenheit-link">°F</a></span>
+    </div>
+  </div>
 </div>
 <div class="col-6">
   <ul>
-    <li>
-    Humidity: <span id="humidity"></span>%</li>
-    <li>
-    Wind: <span id="wind"></span> km/h</li>
-    </li>
+    <li>Humidity: <span id="humidity">98</span>%</li>
+    <li>Wind: <span id="wind">3</span> km/h</li>
   </ul>
 </div>
 <div class="container">
   <div class="weaher-app-wrapper">
-  <div class="weather-app"></div>
+    <div class="weather-app"></div>
     <div class="search bar">
       <form id="search-form" class="mb-3">
-        <div class="col-9">
-        <input type="text" placeholder="Enter City" class="form-control" id="city-input" autocomplete="off" />
+        <div class="col-12 enter-city-container">
+          <input type="text" placeholder="Enter City" class="form-control" id="city-input" autocomplete="off" />
         </div>
-        <div class="col-6">
+        <div class="col-12">
           <div class="row">
-            <div class="col-3">
-              <input type="submit" value="Search" class="btn btn-outline-secondary">
-            <button type="button" class="btn btn-outline-secondary" id="current-city-btn">
-              Current City
-            </button>
+            <div class="col-6">
+              <input type="submit" value="Search" class="btn btn-outline-secondary" />
+            </div>
+            <div class="col-6 text-right">
+              <button type="button" class="btn btn-outline-secondary" id="current-city-btn">
+                Current City
+              </button>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
+    <div class="col-12 link-github">
+      <a href="https://github.com/elenilearnscode/my-weather-app" target="_blank" id="footer">Open-source code</a>
+      by Eleni
     </div>
+    <script src="src/app.js"></script>
+  </div>
 </div>
 </div>
-<div class="link-github">
-  <a href="https://github.com/elenilearnscode/my-weather-app" target="_blank" id="footer">Open-source code</a> by Eleni
-</div>
-  <script src="src/app.js"></script>
-  </body>
-  </html>
-   
- 
+</body>
+</html>
+
 
  
