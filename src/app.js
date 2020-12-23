@@ -1,5 +1,3 @@
-
-
 function formatDate(timestamp) {
 let date = new Date(timestamp);
 let hours = date.getHours();
@@ -72,8 +70,6 @@ let celciusTemperature = null;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-
-
 // CURRENT-CITY BUTTON
 function getPosition(position) {
   let lat = position.coords.latitude;
@@ -81,7 +77,7 @@ function getPosition(position) {
   let unit = "metric";
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${unit}&appid=${apiKey}`;
-  axios.get(apiUrl).then(showTemperature);
+  axios.get(apiUrl).then(displayTemperature);
 }
 
 function startGeolocation(event) {
@@ -95,8 +91,9 @@ position.addEventListener("click", startGeolocation);
 function displayFahrenheitTemperature(event) {
 event.preventDefault();
 let fahrenheitTemperature = (celsiusTemperature * 9/5) + 32;
-fahrenheitLink.classlist.add("active");
+fahrenheitLink.classList.add("active");
 celsiusLink.classList.remove("active");
+let temperatureElement = document.querySelector("#temperature")
 temperatureElement.innerHTML = Math.round(fahrenheitTemperature)
  }
 
